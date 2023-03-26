@@ -1,24 +1,23 @@
 package HomeWork1;
-import java.util.Scanner;
 
 public class task1 {
 
     public static void triangularNumber() {
-        System.out.println("Введите число:");
-        int n = new Scanner(System.in).nextInt();
 
-        System.out.printf("\nТреугольное число %d = ", n);
-        System.out.println(n * (n + 1) / 2 + "\n");
-        System.out.printf("Нарисовать треугольник с основанием %d?:\n 1 - Да\n", n);
+        int n = myMethods.getNum("Введите число:");
+
+        System.out.printf("\nТреугольное число %d = %d\n", n, n * (n + 1) / 2);
+        int choice = myMethods.chooseOption(1, 2, String.format("\nНарисовать треугольник с основанием %d?:" + 
+        "\n 1 - Да\n 2 - Нет (Выход)", n));
 
         
 
-        if (new Scanner(System.in).next().equals("1")) {
+        if (choice == 1) {
             for (int i = 1; i <= n; i++) {
                 System.out.print(new String(new char[n - i]).replace('\0', ' '));
                 System.out.print(new String(new char[i]).replace("\0", "* "));
                 System.out.println();
-            } 
+            }
         }
         System.out.println("\nДо скорой встречи!");
     }
