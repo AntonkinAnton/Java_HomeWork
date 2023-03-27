@@ -3,6 +3,13 @@ package HomeWork1;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/*Задача выполнена для возможности нахождения как можно большего количества неизвестных в числах с более двумя знаками.
+    Тем не менее, в ней все еще много багов с разными вариациями неизвестных (чем меньше неизвестных, тем надежней). 
+    Код написан просто ужасно и дико неоптимально с огромным кол-м try/catch, но упора на читабельность кода (и вообще, что его 
+    кто-то будет читать  ヽ(ー_ー )ノ) не было. При всех огромных недостатках, остается надеятся, что она работает быстре, чем
+    оная на циклах, для перебора всхе значений (особенно, если будет более двух знаков)...
+  */
+
 public class task5 {
     public static void starTask() {
 
@@ -86,7 +93,9 @@ public class task5 {
             if (Integer.parseInt(sumArray[i]) >= 10)
                 sumArray[i] = String.valueOf(Integer.parseInt(sumArray[i]) - 10);
         }
-        System.out.println(Arrays.toString(sumArray));
+
+        // System.out.println(Arrays.toString(sumArray));
+
         if (Integer.parseInt(sumArray[0]) < 0)
             noSolves = true;
 
@@ -132,11 +141,12 @@ public class task5 {
         int firstResult = Integer.parseInt((String.join("", firstNumArray)));
         int secondResult = Integer.parseInt((String.join("", secondNumArray)));
 
-        // if ((firstResult + secondResult) != (Integer.parseInt(sum))) {
-        // System.out.println("Нет решений!");
-        // return;
-        // }
+        if ((firstResult + secondResult) != (Integer.parseInt(sum))) { 
+        System.out.println("Решение не найдено");
+        return;
+        }
 
         System.out.println("\n"+ "Возможное решение:\n" + firstResult + " + " + secondResult + " = " + sum);
+        System.out.println("\n До встречи!");
     }
 }

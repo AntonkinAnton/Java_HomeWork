@@ -6,7 +6,7 @@ public class task2 {
     {
         System.out.println("Введите число:");
         int n = new Scanner(System.in).nextInt();
-        System.out.printf("\nФакториал числа %d = \n", n);
+        System.out.printf("\nФакториал числа %d = ", n);
         int res = 1;
 
         for (; n > 0; n--) {
