@@ -25,6 +25,7 @@ public class task5 {
         var firstNumArray = firstNum.split("");
         var secondNumArray = secondNum.split("");
         var sumArray = sum.split("");
+        var sumArrayCopy = Arrays.copyOf(sumArray, sumArray.length);
         boolean noSolves = false;
         boolean sameSymbol = false;
 
@@ -59,8 +60,19 @@ public class task5 {
             try {
                 sumArray[i] = String.valueOf(Integer.parseInt(sumArray[i]) - Integer.parseInt(secondNumArray[j]));
             } catch (Exception e) {
-                if (sameSymbol && i == sumArray.length-1)
-                sumArray[i] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
+                if (sameSymbol && i == sumArray.length-1 && (sumArrayCopy[i-1]
+                .equals(String.valueOf(Integer.parseInt(firstNumArray[j-1]) + Integer.parseInt(secondNumArray[j-1]))))){
+                // sumArray[i] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
+                firstNumArray[j] = String.valueOf((int)Math.ceil((Double.parseDouble(sumArray[i]) ) / 2));
+                secondNumArray[j] = String.valueOf((Integer.parseInt(sumArray[i]) ) / 2);
+                }
+                else if (sameSymbol && i == sumArray.length-1 && (!sumArrayCopy[i-1]
+                .equals(String.valueOf(Integer.parseInt(firstNumArray[j-1]) + Integer.parseInt(secondNumArray[j-1]))))){
+                // sumArray[i] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
+                firstNumArray[j] = String.valueOf((int)Math.ceil((Double.parseDouble(sumArray[i]) + 10) / 2));
+                secondNumArray[j] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
+                }
+                
             }
             try {
                 if (Integer.parseInt(sumArray[i]) < 0) {
@@ -107,13 +119,13 @@ public class task5 {
             try {
                 Integer.parseInt(secondNumArray[j]);
             } catch (Exception ex) {
-                // if (next) {
-                //     try {
-                //         secondNumArray[j] = sumArray[i + 1];
-                //     } catch (Exception exeption) {
-                //         secondNumArray[j] = sumArray[i - 1];
-                //     }
-                // } else
+                if (next) {
+                    try {
+                        secondNumArray[j] = sumArray[i + 1];
+                    } catch (Exception exeption) {
+                        secondNumArray[j] = sumArray[i - 1];
+                    }
+                } else
                     secondNumArray[j] = sumArray[i];
             }
         }
