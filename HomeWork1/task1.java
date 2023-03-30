@@ -1,4 +1,5 @@
 package HomeWork1;
+import MyMethods.myMethods;
 
 public class task1 {
 

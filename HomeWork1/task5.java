@@ -67,6 +67,7 @@ public class task5 {
             try {
                 sumArray[i] = String.valueOf(Integer.parseInt(sumArray[i]) - Integer.parseInt(secondNumArray[j]));
             } catch (Exception e) {
+                try{
                 if (sameSymbol && i == sumArray.length-1 && (sumArrayCopy[i-1]
                 .equals(String.valueOf(Integer.parseInt(firstNumArray[j-1]) + Integer.parseInt(secondNumArray[j-1]))))){
                 // sumArray[i] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
@@ -78,7 +79,7 @@ public class task5 {
                 // sumArray[i] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
                 firstNumArray[j] = String.valueOf((int)Math.ceil((Double.parseDouble(sumArray[i]) + 10) / 2));
                 secondNumArray[j] = String.valueOf((Integer.parseInt(sumArray[i]) + 10) / 2);
-                }
+                }}catch(Exception ec){firstNumArray[j] = String.valueOf(0);}
                 
             }
             try {

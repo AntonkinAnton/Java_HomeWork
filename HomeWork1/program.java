@@ -1,4 +1,5 @@
 package HomeWork1;
+import MyMethods.myMethods;
 import java.util.Scanner;
 
 public class Program {
